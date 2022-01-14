@@ -5,6 +5,8 @@ first_place = gets
 puts "First client phone number?"
 first_number = gets
 
+puts
+
 puts "Second client date of birth?"
 second_birth = gets
 puts "Second client place of birth?"
@@ -12,12 +14,16 @@ second_place = gets
 puts "Second client phone number?"
 second_number = gets
 
+puts
+
 puts "Third client date of birth?"
 third_birth = gets
 puts "Third client place of birth?"
 third_place = gets
 puts "Third client phone number?"
 third_number = gets
+
+puts
 
 puts "First client:"
 puts first_birth
