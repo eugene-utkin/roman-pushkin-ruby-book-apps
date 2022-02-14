@@ -2,8 +2,8 @@
 # ОПРЕДЕЛЯЕМ ПЕРЕМЕННЫЕ
 ##############################
 
-@humans = 10_000
-@machines = 10_000
+@humans = 10
+@machines = 10
 
 
 ##############################
@@ -79,7 +79,9 @@ end
 ##############################
 
 def check_victory?
-  false
+  if @humans <= 0 || @machines <= 0
+    true
+  end
 end
 
 
@@ -89,6 +91,11 @@ end
 
 loop do
   if check_victory?
+    if @humans <= 0
+      puts "Поражение! Машины одержали верх!"
+    elsif @machines <= 0
+      puts "Победа! Человечество спасено!"
+    end
     exit
   end
 
