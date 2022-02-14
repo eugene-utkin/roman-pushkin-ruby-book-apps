@@ -2,8 +2,8 @@
 # ОПРЕДЕЛЯЕМ ПЕРЕМЕННЫЕ
 ##############################
 
-humans = 10_000
-machines = 10_000
+@humans = 10_000
+@machines = 10_000
 
 
 ##############################
@@ -93,4 +93,15 @@ loop do
   end
 
   dice = rand(1..3)
+
+  if dice == 1
+    event1
+  elsif dice == 2
+    event2
+  elsif dice == 3
+    event3
+  end
+
+  stats
+  random_sleep
 end
