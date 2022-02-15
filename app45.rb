@@ -26,6 +26,18 @@ def boom
   end
 end
 
+def  reborn
+  if luck?
+    diff = 10_000 - @machines
+    @machines += diff
+    puts "Было создано новых машин: #{diff}." if diff > 0
+  else
+    diff = 10_000 - @humans
+    @humans += diff
+    puts "Новых людей появилось: #{diff}." if diff > 0
+  end
+end
+
 # Метод возвращает случайное название города
 def random_city
   dice = rand(1..5)
@@ -110,6 +122,9 @@ loop do
   when 3
     event3
   end
+
+  random_sleep
+  reborn
 
   stats
   random_sleep
