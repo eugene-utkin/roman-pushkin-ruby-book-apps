@@ -26,6 +26,23 @@ def boom
   end
 end
 
+def snap
+  @machines = @machines / 2
+  @humans = @humans / 2
+  puts "В результате была уничтожена половина всех людей и машин."
+end
+
+def time
+  diff = rand(5..10)
+  if luck?
+    @machines -= diff
+    puts "#{diff} машин вышло из строя."
+  else
+    @humans -= diff
+    puts "#{diff} людей умерло от старости."
+  end
+end
+
 def  reborn
   if luck?
     diff = 10_000 - @machines
@@ -86,6 +103,23 @@ def event3
   boom
 end
 
+def event4
+  puts "Кто-то использовал Перчатку Бесконечности!"
+  random_sleep
+  snap
+end
+
+def event5
+  puts "Время никого не щадит!"
+  random_sleep
+  time
+end
+
+def event6
+  puts "Сегодня праздничный день. Стрельба стихла. Сегодня никто не умер."
+  random_sleep
+end
+
 
 ##############################
 # ПРОВЕРКА ПОБЕДЫ
@@ -112,7 +146,7 @@ loop do
     exit
   end
 
-  dice = rand(1..3)
+  dice = rand(1..6)
 
   case dice
   when 1
@@ -121,6 +155,12 @@ loop do
     event2
   when 3
     event3
+  when 4
+    event4
+  when 5
+    event5
+  when 6
+    event6
   end
 
   random_sleep
