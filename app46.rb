@@ -6,20 +6,53 @@ if age < 18
 end
 
 def animate(x, y, z)
+    first_spin = rand(1..3)
+    second_spin = rand(1..3)
+    third_spin = rand(1..3)
     first = 0
     second = 0
     third = 0
-    ([x, y, z].max + 1).times do |i|
+    ([(x + 6 * first_spin), (y + 6 * second_spin), (z + 6 * third_spin)].max + 1).times do |i|
         print "\rРезультат: #{first} #{second} #{third}"
-        if first < x
-          first += 1
+        if first_spin > 0
+          if first < 5
+            first += 1
+          elsif first == 5
+            first = 0
+            first_spin -= 1
+          end
+        elsif first_spin == 0
+          if first < x
+            first += 1
+          end
         end
-        if second < y
-          second += 1
+
+        if second_spin > 0
+          if second < 5
+            second += 1
+          elsif second == 5
+            second = 0
+            second_spin -= 1
+          end
+        elsif second_spin == 0
+          if second < y
+            second += 1
+          end
         end
-        if third < z
-          third += 1
+
+        if third_spin > 0
+          if third < 5
+            third += 1
+          elsif third == 5
+            third = 0
+            third_spin -= 1
+          end
+        elsif third_spin == 0
+          if third < z
+            third += 1
+          end
         end
+
         sleep rand(0.2..0.3)
     end
 end
@@ -34,7 +67,7 @@ loop do
     z = rand(0..5)
     animate(x, y, z)
     
-    print "\rРезультат: #{x} #{y} #{z}"
+    print "Результат: #{x} #{y} #{z}"
     puts
 
     if x == 0 && y == 0 && z == 0
