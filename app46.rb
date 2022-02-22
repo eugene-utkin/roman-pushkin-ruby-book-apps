@@ -67,7 +67,6 @@ loop do
     z = rand(0..5)
     animate(x, y, z)
     
-    print "Результат: #{x} #{y} #{z}"
     puts
 
     if x == 0 && y == 0 && z == 0
@@ -76,9 +75,15 @@ loop do
     elsif x == 1 && y == 1 && z == 1
         balance += 10
         puts 'Баланс увеличился на 10 долларов'
-    elsif x == 2 && y == 2 && x == 2
+    elsif x == 2 && y == 2 && z == 2
         balance += 20
         puts 'Баланс увеличился на 20 долларов'
+    elsif x == 3 && y == 3 && z == 3
+        balance += 30
+        puts 'Баланс увеличился на 30 долларов'
+    elsif (x == y && x != z) || (x == z && x != y) || (z == y && z != x)
+        balance += 5
+        puts 'Баланс увеличился на 5 долларов'
     else
         balance -= 0.5
         puts 'Баланс уменьшился на 50 центов'
