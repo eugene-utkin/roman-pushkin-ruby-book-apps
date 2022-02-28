@@ -39,7 +39,7 @@ def victory?
 
   if robots_left2 == 0
     puts "Команда 1 победила, в команде осталось #{robots_left1} роботов"
-    return false
+    return true
   end
 
   false
